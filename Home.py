@@ -94,7 +94,7 @@ flask_thread.daemon = True
 flask_thread.start()
 
 # ---------- Streamlit Dashboard ---------- #
-st.title("Gas Monitoring Dashboard")
+st.title("Helmet Monitoring Dashboard")
 
 if 'authenticated' not in st.session_state:
     st.session_state.authenticated = False
@@ -117,7 +117,7 @@ else:
         df = pd.DataFrame(data)
 
         if 'timestamp' in df.columns:
-            df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s')
+            df['timestamp'] = pd.to_datetime(df['timestamp'])
             df.sort_values('timestamp', inplace=True)
 
         person_ids = df['person_id'].unique()

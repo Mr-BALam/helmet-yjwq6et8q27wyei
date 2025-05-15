@@ -4,8 +4,11 @@ import json
 import os
 from datetime import datetime, timezone
 import pytz
+from streamlit_autorefresh import st_autorefresh
 # Load data from JSON file
 DATA_FILE = 'data.json'
+# Automatically refresh every 5 seconds
+st_autorefresh(interval=5000, key="autorefresh")
 
 def load_data():
     if os.path.exists(DATA_FILE):
@@ -33,7 +36,7 @@ if not data:
     st.stop()
 
 df = pd.DataFrame(data)
-df['timestamp'] = pd.to_datetime(df['timestamp'], unit='s', utc=True)
+df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
 df.sort_values('timestamp', inplace=True)
 
 # Unique Person IDs
