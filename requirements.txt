@@ -1,0 +1,9 @@
+streamlit
+pandas
+plotly
+flask
+streamlit-autorefresh
+folium
+streamlit-folium
+streamlit-echarts
+pytz
